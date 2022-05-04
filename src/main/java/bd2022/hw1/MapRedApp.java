@@ -31,10 +31,14 @@ public class MapRedApp {
         job.setJarByClass(MapRedApp.class);
         job.setMapperClass(HW1Mapper.class);
         job.setReducerClass(HW1Reducer.class);
+        // Выходной ключ маппера - логическое имя элемента экрана.
+        job.setMapOutputKeyClass(Text.class);
+        // Выходное значение маппера - единичка.
+        job.setMapOutputValueClass(IntWritable.class);
         // Выходной ключ - логическое имя элемента экрана.
         job.setOutputKeyClass(Text.class);
         // Выходное значение - текстовое обозначение числа нажатий и соответствующей температуры.
-        job.setOutputValueClass(IntWritable.class);
+        job.setOutputValueClass(Text.class);
         // По варианту, выходной формат - SequenceFile.S
         job.setOutputFormatClass(SequenceFileOutputFormat.class);
 
